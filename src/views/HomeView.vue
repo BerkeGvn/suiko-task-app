@@ -1,7 +1,9 @@
 <template>
-  <div></div>
+  <HomeCalendar></HomeCalendar>
 </template>
 
-<script setup></script>
+<script setup>
+import HomeCalendar from "../components/home/HomeCalendar.vue";
+</script>
 
 <style lang="scss" scoped></style>
