@@ -1,9 +1,15 @@
 <template>
-  <div>
-    <h1>hello</h1>
-  </div>
+  <NavBar></NavBar>
+  <router-view></router-view>
 </template>
 
-<script setup></script>
+<script setup>
+import NavBar from "./components/nav/NavBar.vue";
+</script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+h1 {
+  color: var(--main-red-color);
+  font-size: var(--header-font-size);
+}
+</style>
