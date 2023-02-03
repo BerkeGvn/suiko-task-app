@@ -31,7 +31,7 @@ nav {
   align-items: center;
   padding: 0 0.2rem;
   box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.09);
-  border-radius: 5px 5px 0px 0px;
+  border-radius: 10px 10px 0px 0px;
   color: var(--icon-color);
 
   & .router-link-exact-active {
