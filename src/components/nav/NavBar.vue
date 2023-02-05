@@ -33,7 +33,8 @@ nav {
   box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.09);
   border-radius: 10px 10px 0px 0px;
   color: var(--icon-color);
-
+  background-color: var(--background-color-1);
+  z-index: 10;
   & .router-link-exact-active {
     color: var(--main-orange-color);
   }

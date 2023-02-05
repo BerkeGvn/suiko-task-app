@@ -1,7 +1,7 @@
 import randomId from "./GUID";
 export default [
   {
-    list: "personel",
+    list: "personal",
     id: randomId(),
     color: "#6695ed",
     tasks: [
@@ -47,6 +47,27 @@ export default [
     id: randomId(),
     color: "#40d872",
     tasks: [
+      {
+        id: randomId(),
+        title: "Grocery",
+        desc: "I have to buy some grocery",
+        date: new Date().toLocaleDateString("en-GB"),
+        isDone: false,
+      },
+      {
+        id: randomId(),
+        title: "Grocery",
+        desc: "I have to buy some grocery",
+        date: new Date().toLocaleDateString("en-GB"),
+        isDone: false,
+      },
+      {
+        id: randomId(),
+        title: "Grocery",
+        desc: "I have to buy some grocery",
+        date: new Date().toLocaleDateString("en-GB"),
+        isDone: false,
+      },
       {
         id: randomId(),
         title: "Grocery",

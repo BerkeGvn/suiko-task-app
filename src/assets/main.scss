@@ -40,3 +40,33 @@ input {
   font-family: inherit;
   color: inherit;
 }
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-style: normal;
+}
+
+// Some multi used elements style
+.delete-button {
+  border: none;
+  background-color: transparent;
+
+  & .delete-icon {
+    font-size: 2rem;
+    color: var(--text-color-3);
+  }
+}
+
+.page {
+  padding: 4rem 2rem 8rem 2rem;
+  min-height: 100vh;
+}
+.background-blob {
+  background: url("data:image/svg+xml,%3Csvg width='388' height='480' viewBox='0 0 388 480' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M175.854 0C281.246 0 388 88.0776 388 239.218C388 390.253 325 523 183.5 466.5C55.3542 412.5 0 374.847 0 239.218C0 103.472 81.1975 0 175.854 0Z' fill='%23CFD4E2'/%3E%3C/svg%3E")
+      right -15rem top -15rem no-repeat,
+    url("data:image/svg+xml,%3Csvg width='350' height='347' viewBox='0 0 350 347' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M184.137 4.72048C207.928 11.7879 219.09 39.0094 241.937 48.4293C263.566 57.3468 291.948 44.9173 311.572 57.2617C330.679 69.2803 338.388 92.6053 345.025 113.275C351.327 132.9 350.298 153.656 349.1 174.122C347.99 193.064 343.433 211.29 338.212 229.617C332.939 248.123 331.804 269.245 317.983 283.341C304.074 297.527 280.744 298.459 262.332 307.006C245.346 314.891 230.46 325.835 212.759 332.185C193.312 339.161 173.194 349.76 152.696 346.337C132.217 342.916 116.314 327.399 101.581 313.616C88.066 300.973 85.0707 280.471 70.2416 269.199C50.1417 253.921 10.069 260.13 1.21102 237.322C-7.26225 215.504 31.4214 198.509 33.8116 175.395C36.1879 152.417 8.02433 131.451 14.4636 109.169C20.4901 88.3159 49.9765 82.2529 65.3716 66.1885C82.3206 48.5027 87.9885 20.7762 110.182 9.28973C132.002 -2.0033 160.381 -2.33645 184.137 4.72048Z' fill='%23CFD4E2'/%3E%3C/svg%3E")
+      left -15rem bottom -10rem no-repeat;
+}

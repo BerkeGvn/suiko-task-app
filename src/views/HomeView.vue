@@ -2,15 +2,7 @@
   <HomeCalendar></HomeCalendar>
   <main>
     <ProgressBar :taskNum="tasks.length"></ProgressBar>
-    <li v-for="task in tasks" :key="task.id">
-      <p :class="{ done: task.isDone }">
-        {{ task.title }}
-      </p>
-      <p>
-        {{ task.desc }}
-      </p>
-    </li>
-    <TaskList></TaskList>
+    <TaskList :tasks="tasks"></TaskList>
   </main>
 </template>
 
@@ -30,6 +22,7 @@ main {
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding: 2rem 2rem 8rem 2rem;
 }
 p {
   font-size: 2rem;
