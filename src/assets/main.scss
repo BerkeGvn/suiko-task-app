@@ -59,11 +59,12 @@ h6 {
     color: var(--text-color-3);
   }
 }
-
+// margin for each page expect home
 .page {
   padding: 4rem 2rem 8rem 2rem;
   min-height: 100vh;
 }
+// Giving background blobs to each page expect home
 .background-blob {
   background: url("data:image/svg+xml,%3Csvg width='388' height='480' viewBox='0 0 388 480' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M175.854 0C281.246 0 388 88.0776 388 239.218C388 390.253 325 523 183.5 466.5C55.3542 412.5 0 374.847 0 239.218C0 103.472 81.1975 0 175.854 0Z' fill='%23CFD4E2'/%3E%3C/svg%3E")
       right -15rem top -15rem no-repeat,

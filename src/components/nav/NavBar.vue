@@ -3,7 +3,7 @@
     <router-link to="/home">
       <span class="material-symbols-rounded home"> home </span>
     </router-link>
-    <router-link to="/taskLists">
+    <router-link to="/AllTasks">
       <span class="material-symbols-rounded list"> list_alt </span>
     </router-link>
     <router-link to="/newTask">

@@ -1,6 +1,6 @@
 <template>
   <div class="page background-blob calendar">
-    <h2>Calendar</h2>
+    <PageHeader :icon="'calendar_month'" :headerText="'Calendar'"></PageHeader>
     <div class="test">
       <DatePicker
         locale="en-GB"
@@ -44,11 +44,6 @@ const selectedDate = computed(() => date.value.split("/"));
 </script>
 
 <style lang="scss" scoped>
-.calendar {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
 .test {
   width: 90%;
   margin: 2rem;

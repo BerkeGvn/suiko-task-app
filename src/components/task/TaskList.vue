@@ -15,8 +15,8 @@
         </p>
       </template>
       <template #badge-delete>
-        <ListBadge :listName="store.getListName(task.id)"></ListBadge>
-        <button class="delete-button" @click="store.deleteTask(task.id)">
+        <ListBadge :taskId="task.id"></ListBadge>
+        <button class="delete-button" @click="deleteTask(task.id)">
           <span class="material-symbols-rounded delete-icon"> delete </span>
         </button>
       </template>
@@ -25,9 +25,11 @@
 </template>
 
 <script setup>
-import { useTaskStore } from "../../stores/tasks";
 const props = defineProps(["tasks"]);
-const store = useTaskStore();
+const emit = defineEmits(["deleteTask"]);
+function deleteTask(taskId) {
+  emit("deleteTask", taskId);
+}
 </script>
 
 <style lang="scss" scoped></style>

@@ -1,12 +1,20 @@
 <template>
-  <p :class="`badge ${props.listName}`">
+  <p class="badge">
     <span></span>
-    {{ formatText(props.listName) }}
+    {{ formatText(listDetails.name) }}
   </p>
 </template>
 
 <script setup>
-const props = defineProps(["listName"]);
+import { ref, inject, computed } from "vue";
+
+const props = defineProps(["taskId"]);
+
+const getListDetails = inject("getListDetails");
+// Combine injected action with task id prop to get correct badge
+const listDetails = computed(() => getListDetails(props.taskId));
+const color = ref(listDetails.value.color);
+
 function formatText(text) {
   return text.charAt(0).toUpperCase() + text.slice(1).toLowerCase();
 }
@@ -20,6 +28,7 @@ function formatText(text) {
   min-width: 7rem;
   text-align: center;
   color: var(--text-color-2);
+  background-color: v-bind(color);
 }
 .personal {
   background-color: var(--main-blue-color);

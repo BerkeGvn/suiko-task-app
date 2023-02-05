@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <h1>Profile</h1>
+  <div class="page background-blob">
+    <PageHeader :icon="'person'" :headerText="'Profile'"></PageHeader>
   </div>
 </template>
 
