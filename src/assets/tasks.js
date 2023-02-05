@@ -1,7 +1,7 @@
 import randomId from "./GUID";
 export default [
   {
-    list: "personel",
+    name: "personal",
     id: randomId(),
     color: "#6695ed",
     tasks: [
@@ -22,7 +22,7 @@ export default [
     ],
   },
   {
-    list: "work",
+    name: "work",
     id: randomId(),
     color: "#b82638",
     tasks: [
@@ -43,7 +43,7 @@ export default [
     ],
   },
   {
-    list: "home",
+    name: "home",
     id: randomId(),
     color: "#40d872",
     tasks: [
@@ -52,6 +52,69 @@ export default [
         title: "Grocery",
         desc: "I have to buy some grocery",
         date: new Date().toLocaleDateString("en-GB"),
+        isDone: false,
+      },
+      {
+        id: randomId(),
+        title: "Grocery",
+        desc: "I have to buy some grocery",
+        date: new Date().toLocaleDateString("en-GB"),
+        isDone: false,
+      },
+      {
+        id: randomId(),
+        title: "Grocery",
+        desc: "I have to buy some grocery",
+        date: new Date().toLocaleDateString("en-GB"),
+        isDone: false,
+      },
+      {
+        id: randomId(),
+        title: "Grocery",
+        desc: "I have to buy some grocery",
+        date: new Date().toLocaleDateString("en-GB"),
+        isDone: false,
+      },
+    ],
+  },
+  {
+    name: "School",
+    id: randomId(),
+    color: "#f6c445",
+    tasks: [
+      {
+        id: randomId(),
+        title: "Article",
+        desc: "Write a new article about penguins",
+        date: new Date().toLocaleDateString("en-GB"),
+        isDone: false,
+      },
+      {
+        id: randomId(),
+        title: "Test",
+        desc: "Study for test",
+        date: "05/02/2023",
+        isDone: false,
+      },
+    ],
+  },
+  {
+    name: "Outside",
+    id: randomId(),
+    color: "#b3c901",
+    tasks: [
+      {
+        id: randomId(),
+        title: "asfasfas",
+        desc: "dfsagsasagdasgas",
+        date: new Date().toLocaleDateString("en-GB"),
+        isDone: false,
+      },
+      {
+        id: randomId(),
+        title: "asdgsag",
+        desc: "asdgsagsagdsadgsagsa",
+        date: "05/02/2023",
         isDone: false,
       },
     ],

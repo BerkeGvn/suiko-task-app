@@ -2,15 +2,7 @@
   <HomeCalendar></HomeCalendar>
   <main>
     <ProgressBar :taskNum="tasks.length"></ProgressBar>
-    <li v-for="task in tasks" :key="task.id">
-      <p :class="{ done: task.isDone }">
-        {{ task.title }}
-      </p>
-      <p>
-        {{ task.desc }}
-      </p>
-    </li>
-    <TaskList></TaskList>
+    <TaskList :tasks="tasks" @deleteTask="deleteTask"></TaskList>
   </main>
 </template>
 
@@ -19,10 +11,15 @@ import HomeCalendar from "../components/home/HomeCalendar.vue";
 import ProgressBar from "../components/home/ProgressBar.vue";
 import TaskList from "../components/task/TaskList.vue";
 import { useTaskStore } from "../stores/tasks";
-import { computed } from "vue";
+import { computed, provide } from "vue";
 
 const store = useTaskStore();
 const tasks = computed(() => store.todaysTasks);
+function deleteTask(taskId) {
+  store.deleteTask(taskId);
+}
+// Sending action to ListBadge.vue to get correct list badges
+provide("getListDetails", store.getListDetails);
 </script>
 
 <style lang="scss" scoped>
@@ -30,6 +27,7 @@ main {
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding: 2rem 2rem 8rem 2rem;
 }
 p {
   font-size: 2rem;
