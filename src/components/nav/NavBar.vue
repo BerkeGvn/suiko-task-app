@@ -30,11 +30,11 @@ nav {
   justify-content: space-around;
   align-items: center;
   padding: 0 0.2rem;
-  box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.09);
-  border-radius: 10px 10px 0px 0px;
+  box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.09);
+  border-radius: 10px 10px 0 0;
   color: var(--icon-color);
   background-color: var(--background-color-1);
-  z-index: 10;
+  z-index: 5;
   & .router-link-exact-active {
     color: var(--main-orange-color);
   }

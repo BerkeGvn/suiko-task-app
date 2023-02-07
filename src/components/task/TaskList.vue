@@ -2,8 +2,15 @@
   <div class="task-card">
     <TaskCard v-for="task in props.tasks" :key="task.id">
       <template #checkbox>
-        <label for="">
-          <input type="checkbox" name="isDone" id="isDone" />
+        <label class="label-isDone" :for="task.title">
+          <input
+            type="checkbox"
+            name="isDone"
+            :id="task.title"
+            class="checkbox-isDone"
+            :checked="task.isDone"
+            @change="toggleDone(task.id)"
+          />
         </label>
       </template>
       <template #default>
@@ -26,10 +33,17 @@
 
 <script setup>
 const props = defineProps(["tasks"]);
-const emit = defineEmits(["deleteTask"]);
+const emit = defineEmits(["deleteTask", "toggleDone"]);
 function deleteTask(taskId) {
   emit("deleteTask", taskId);
 }
+function toggleDone(taskId) {
+  emit("toggleDone", taskId);
+}
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.done {
+  color: red;
+}
+</style>

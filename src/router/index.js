@@ -19,6 +19,12 @@ const router = createRouter({
       component: () => import("../views/AllTasksView.vue"),
     },
     {
+      path: "/SelectedTask/:listName",
+      name: "SelectedTask",
+      component: () => import("../views/SelectedTaskListView.vue"),
+      props: true,
+    },
+    {
       path: "/newTask",
       name: "newTask",
       component: () => import("../views/NewTaskView.vue"),

@@ -2,7 +2,11 @@
   <HomeCalendar></HomeCalendar>
   <main>
     <ProgressBar :taskNum="tasks.length"></ProgressBar>
-    <TaskList :tasks="tasks" @deleteTask="deleteTask"></TaskList>
+    <TaskList
+      :tasks="tasks"
+      @deleteTask="deleteTask"
+      @toggleDone="toggleDone"
+    ></TaskList>
   </main>
 </template>
 
@@ -17,6 +21,9 @@ const store = useTaskStore();
 const tasks = computed(() => store.todaysTasks);
 function deleteTask(taskId) {
   store.deleteTask(taskId);
+}
+function toggleDone(taskId) {
+  store.toggleTaskIsDone(taskId);
 }
 // Sending action to ListBadge.vue to get correct list badges
 provide("getListDetails", store.getListDetails);
