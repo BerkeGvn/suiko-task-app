@@ -10,7 +10,7 @@ export default [
         title: "Workout",
         desc: "Go to park for jogging",
         date: new Date().toLocaleDateString("en-GB"),
-        isDone: false,
+        isDone: true,
       },
       {
         id: randomId(),

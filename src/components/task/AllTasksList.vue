@@ -1,20 +1,38 @@
 <template>
   <div class="base-lists">
-    <router-link class="base-lists-personal list" to="/home">
+    <router-link
+      class="base-lists-personal list"
+      :to="{
+        name: 'SelectedTask',
+        params: { listName: baseLists.personal.name },
+      }"
+    >
       <p>Personal</p>
       <span class="sub-text"
         >You have {{ baseLists.personal.length }} tasks</span
       >
     </router-link>
 
-    <router-link class="base-lists-work list" to="/home">
+    <router-link
+      class="base-lists-work list"
+      :to="{
+        name: 'SelectedTask',
+        params: { listName: baseLists.work.name },
+      }"
+    >
       <div>
         <p>Work</p>
         <span class="sub-text">You have {{ baseLists.work.length }} tasks</span>
       </div>
     </router-link>
 
-    <router-link class="base-lists-home list" to="/home">
+    <router-link
+      class="base-lists-home list"
+      :to="{
+        name: 'SelectedTask',
+        params: { listName: baseLists.home.name },
+      }"
+    >
       <p>Home</p>
       <span class="sub-text">You have {{ baseLists.home.length }} tasks</span>
     </router-link>
@@ -24,7 +42,10 @@
     v-for="list in customLists"
     :style="{ backgroundColor: list.color }"
     :key="list.id"
-    to="/home"
+    :to="{
+      name: 'SelectedTask',
+      params: { listName: list.name },
+    }"
   >
     <p>{{ formatText(list.name) }}</p>
     <span class="sub-text">You have {{ list.length }} tasks</span>
@@ -37,8 +58,10 @@
 
 <script setup>
 import { computed } from "vue";
+
 const props = defineProps(["allTasks"]);
 const emits = defineEmits(["deleteList"]);
+
 // getting base lists with their name
 const baseLists = computed(() => {
   const [personal, work, home] = props.allTasks;

@@ -36,9 +36,13 @@ a:visited {
   color: inherit;
 }
 
-input {
+input,
+textarea {
   font-family: inherit;
   color: inherit;
+}
+button {
+  font-family: inherit;
 }
 h1,
 h2,
@@ -47,6 +51,30 @@ h4,
 h5,
 h6 {
   font-style: normal;
+}
+
+form {
+  padding: 4rem 2rem;
+  & label {
+    font-size: var(--normal-font-size);
+    width: 80%;
+  }
+  & input[type="text"],
+  textarea {
+    width: 100%;
+    border: none;
+    background-color: #f0f0f0;
+    border-radius: 10px;
+    padding: 1rem;
+    font-size: var(--small-font-size);
+    &::placeholder {
+      color: #aaaaaa;
+    }
+    &:focus {
+      outline: none;
+      box-shadow: 0 0 0 2px var(--main-dark-blue-color);
+    }
+  }
 }
 
 // Some multi used elements style
@@ -58,6 +86,17 @@ h6 {
     font-size: 2rem;
     color: var(--text-color-3);
   }
+}
+.create-button {
+  background-color: var(--main-dark-blue-color);
+  color: var(--text-color-2);
+  border: none;
+  border-radius: 10px;
+  padding: 1rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
 }
 // margin for each page expect home
 .page {

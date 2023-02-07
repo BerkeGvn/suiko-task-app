@@ -1,11 +1,13 @@
 import { defineStore } from "pinia";
 import tasks from "../assets/tasks";
+import randomId from "../assets/GUID";
 
 export const useTaskStore = defineStore("tasks", {
   state: () => ({
     allTasks: [...tasks],
   }),
   getters: {
+    // used for AllTasksView to define links,colors,names and task length
     allListDetails: (state) => {
       const allListDetails = [];
       state.allTasks.forEach((list) =>
@@ -32,13 +34,11 @@ export const useTaskStore = defineStore("tasks", {
       return tasks;
     },
   },
+
   actions: {
-    // For getting list name and color for badges
-    getListDetails(id) {
-      let list = this.allTasks.find((list) =>
-        list.tasks.some((task) => task.id === id)
-      );
-      return { name: list.name, color: list.color };
+    createNewList(newList) {
+      newList.id = randomId();
+      this.allTasks.push(newList);
     },
 
     deleteList(listId) {
@@ -55,6 +55,35 @@ export const useTaskStore = defineStore("tasks", {
         (task) => task.id === taskId
       );
       this.allTasks[listIndex].tasks.splice(taskIndex, 1);
+    },
+
+    toggleTaskIsDone(taskId) {
+      const listIndex = this.allTasks.findIndex((lists) =>
+        lists.tasks.some((task) => task.id === taskId)
+      );
+      const taskIndex = this.allTasks[listIndex].tasks.findIndex(
+        (task) => task.id === taskId
+      );
+      const selectedTask = this.allTasks[listIndex].tasks[taskIndex];
+      selectedTask.isDone = !selectedTask.isDone;
+    },
+
+    // For getting list name and color for badges
+    getListDetails(taskId) {
+      let list = this.allTasks.find((list) =>
+        list.tasks.some((task) => task.id === taskId)
+      );
+      return { name: list.name, color: list.color };
+    },
+    // for getting specific list names for that list's tasks & dynamic route
+    getSelectedTaskList(listName) {
+      let selectedTaskList = false;
+      selectedTaskList = this.allTasks.find((list) => list.name === listName);
+      if (selectedTaskList) {
+        return selectedTaskList;
+      } else {
+        return false;
+      }
     },
   },
 });
