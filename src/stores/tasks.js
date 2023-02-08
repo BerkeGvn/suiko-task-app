@@ -1,6 +1,6 @@
 import { defineStore } from "pinia";
 import tasks from "../assets/tasks";
-import randomId from "../assets/GUID";
+import { randomId } from "../assets/helpers";
 
 export const useTaskStore = defineStore("tasks", {
   state: () => ({
@@ -19,6 +19,11 @@ export const useTaskStore = defineStore("tasks", {
         })
       );
       return allListDetails;
+    },
+    // list name for creating category
+    listNames: (state) => {
+      const listNames = state.allTasks.map((list) => list.name);
+      return listNames;
     },
 
     todaysTasks: (state) => {
@@ -39,6 +44,19 @@ export const useTaskStore = defineStore("tasks", {
     createNewList(newList) {
       newList.id = randomId();
       this.allTasks.push(newList);
+    },
+    addNewTask(task) {
+      const newTask = {
+        id: randomId(),
+        title: task.title,
+        desc: task.desc,
+        date: task.date,
+        isDone: false,
+      };
+      const listIndex = this.allTasks.findIndex(
+        (list) => list.name === task.list
+      );
+      this.allTasks[listIndex].tasks.push(newTask);
     },
 
     deleteList(listId) {

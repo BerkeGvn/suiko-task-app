@@ -58,6 +58,7 @@
 
 <script setup>
 import { computed } from "vue";
+import { formatText } from "../../assets/helpers";
 
 const props = defineProps(["allTasks"]);
 const emits = defineEmits(["deleteList"]);
@@ -73,10 +74,6 @@ const customLists = computed(() => props.allTasks.slice(3));
 
 function deleteList(listId) {
   emits("deleteList", listId);
-}
-
-function formatText(text) {
-  return text.charAt(0).toUpperCase() + text.slice(1).toLowerCase();
 }
 </script>
 

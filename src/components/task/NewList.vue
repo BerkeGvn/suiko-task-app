@@ -90,7 +90,7 @@ function checkValidation() {
 function submitNewList() {
   checkValidation();
   if (!isFormValid.value) {
-    return console.log("err");
+    return;
   } else {
     emit("submitNewList", { name: listName.value, color: color.value });
     listName.value = "";
@@ -123,7 +123,9 @@ form {
   justify-content: space-around;
   align-items: center;
   position: relative;
-
+  & label {
+    width: 80%;
+  }
   & .cancel-button {
     position: absolute;
     border: none;
@@ -131,15 +133,7 @@ form {
     top: 1rem;
     right: 2rem;
   }
-  & .input-label-text {
-    margin-left: 1rem;
-    font-weight: 500;
-  }
-  & .input-label-error {
-    margin-left: 1rem;
-    font-size: var(--small-font-size);
-    color: rgba(255, 0, 0, 0.849);
-  }
+
   & .new-list-button {
     width: 80%;
     font-size: var(--normal-font-size);

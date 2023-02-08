@@ -7,13 +7,7 @@
       New task list
     </button>
     <!-- backdrop for prevent clicking background -->
-    <div
-      @wheel.prevent
-      @touchmove.prevent
-      @scroll.prevent
-      v-if="newListForm"
-      class="backdrop"
-    ></div>
+    <div v-if="newListForm" class="backdrop"></div>
     <Transition>
       <NewList
         @submitNewList="submitNewList"

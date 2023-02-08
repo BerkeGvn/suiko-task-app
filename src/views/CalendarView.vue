@@ -22,6 +22,15 @@
         {{ selectedDate[2] }}
       </h2>
     </div>
+    <DatePicker v-model="date">
+      <template v-slot="{ inputValue, inputEvents }">
+        <input
+          class="bg-white border px-2 py-1 rounded"
+          :value="inputValue"
+          v-on="inputEvents"
+        />
+      </template>
+    </DatePicker>
   </div>
 </template>
 

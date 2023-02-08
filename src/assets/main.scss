@@ -54,13 +54,25 @@ h6 {
 }
 
 form {
-  padding: 4rem 2rem;
+  padding: 2rem 1rem;
   & label {
     font-size: var(--normal-font-size);
-    width: 80%;
+  }
+  & .input-label-text {
+    margin-left: 1rem;
+    font-weight: 500;
+  }
+  & .input-label-error {
+    margin-left: 1rem;
+    font-size: var(--small-font-size);
+    color: rgba(255, 0, 0, 0.849);
+  }
+  & textarea {
+    resize: none;
   }
   & input[type="text"],
-  textarea {
+  textarea,
+  .date-input {
     width: 100%;
     border: none;
     background-color: #f0f0f0;
