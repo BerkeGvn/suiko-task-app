@@ -7,6 +7,7 @@
 
 <script setup>
 import { ref, inject, computed } from "vue";
+import { formatText } from "../../assets/helpers";
 
 const props = defineProps(["taskId"]);
 
@@ -14,10 +15,6 @@ const getListDetails = inject("getListDetails");
 // Combine injected action with task id prop to get correct badge
 const listDetails = computed(() => getListDetails(props.taskId));
 const color = ref(listDetails.value.color);
-
-function formatText(text) {
-  return text.charAt(0).toUpperCase() + text.slice(1).toLowerCase();
-}
 </script>
 
 <style lang="scss" scoped>

@@ -1,4 +1,4 @@
-import randomId from "./GUID";
+import { randomId } from "./helpers";
 export default [
   {
     name: "personal",
