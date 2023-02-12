@@ -7,6 +7,11 @@ export const useTaskStore = defineStore("tasks", {
     allTasks: [...tasks],
   }),
   getters: {
+    getAllTasks: (state) => {
+      const tasks = [];
+      state.allTasks.map((list) => tasks.push(...list.tasks));
+      return tasks;
+    },
     // used for AllTasksView to define links,colors,names and task length
     allListDetails: (state) => {
       const allListDetails = [];
@@ -25,7 +30,7 @@ export const useTaskStore = defineStore("tasks", {
       const listNames = state.allTasks.map((list) => list.name);
       return listNames;
     },
-
+    // Today's tasks for home page
     todaysTasks: (state) => {
       const today = new Date().toLocaleDateString("en-GB");
       const tasks = [];
@@ -94,6 +99,7 @@ export const useTaskStore = defineStore("tasks", {
       return { name: list.name, color: list.color };
     },
     // for getting specific list names for that list's tasks & dynamic route
+    // if returns false, there is no list with entered name
     getSelectedTaskList(listName) {
       let selectedTaskList = false;
       selectedTaskList = this.allTasks.find((list) => list.name === listName);
@@ -102,6 +108,17 @@ export const useTaskStore = defineStore("tasks", {
       } else {
         return false;
       }
+    },
+    getTasksFromDate(date) {
+      const tasks = [];
+      this.allTasks.forEach((list) => {
+        list.tasks.map((task) => {
+          if (task.date === date) {
+            tasks.push(task);
+          }
+        });
+      });
+      return tasks;
     },
   },
 });

@@ -2,7 +2,7 @@
   <div class="page background-blob task-lists">
     <PageHeader :icon="'list_alt'" :headerText="'Task List'"></PageHeader>
     <AllTasksList :allTasks="allTasks" @deleteList="deleteList"></AllTasksList>
-    <button @click="newListForm = true" class="create-button task-button">
+    <button @click="newListForm = true" class="create-button fixed-task-button">
       <span class="material-symbols-rounded circle"> add_circle </span>
       New task list
     </button>
@@ -49,11 +49,6 @@ function cancelSubmit() {
 .task-lists {
   font-size: 1.6rem;
   position: relative;
-  & .task-button {
-    position: fixed;
-    right: 1rem;
-    bottom: 6rem;
-  }
 }
 .backdrop {
   position: fixed;

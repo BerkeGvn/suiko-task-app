@@ -93,7 +93,7 @@ export default [
         id: randomId(),
         title: "Test",
         desc: "Study for test",
-        date: "05/02/2023",
+        date: "14/02/2023",
         isDone: false,
       },
     ],

@@ -1,5 +1,5 @@
 <template>
-  <div class="task-card">
+  <ul class="task-card">
     <TaskCard v-for="task in props.tasks" :key="task.id">
       <template #checkbox>
         <label class="label-isDone" :for="task.title">
@@ -28,7 +28,7 @@
         </button>
       </template>
     </TaskCard>
-  </div>
+  </ul>
 </template>
 
 <script setup>
@@ -43,6 +43,12 @@ function toggleDone(taskId) {
 </script>
 
 <style lang="scss" scoped>
+.task-card {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 .done {
   color: red;
 }

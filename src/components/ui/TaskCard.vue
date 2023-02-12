@@ -23,6 +23,7 @@ li {
   padding: 2rem;
   border-radius: 10px;
   margin-bottom: 2rem;
+  width: 100%;
   @media only screen and (min-width: 768px) {
     width: 50vw;
   }
