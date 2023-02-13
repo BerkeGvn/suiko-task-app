@@ -2,7 +2,10 @@
   <div class="homepage">
     <HomeCalendar></HomeCalendar>
     <main>
-      <ProgressBar :taskNum="tasks.length"></ProgressBar>
+      <ProgressBar
+        :taskNum="tasks.length"
+        :taskDone="tasksDone.length"
+      ></ProgressBar>
       <TaskList
         :tasks="tasks"
         @deleteTask="deleteTask"
@@ -21,6 +24,7 @@ import { computed, provide } from "vue";
 
 const store = useTaskStore();
 const tasks = computed(() => store.todaysTasks);
+const tasksDone = computed(() => tasks.value.filter((task) => task.isDone));
 function deleteTask(taskId) {
   store.deleteTask(taskId);
 }
