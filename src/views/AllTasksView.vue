@@ -8,7 +8,7 @@
     </button>
     <!-- backdrop for prevent clicking background -->
     <div v-if="newListForm" class="backdrop"></div>
-    <Transition>
+    <Transition name="slide-up">
       <NewList
         @submitNewList="submitNewList"
         @cancelSubmit="cancelSubmit"
@@ -60,13 +60,13 @@ function cancelSubmit() {
   display: flex;
   z-index: 5;
 }
-.v-enter-active,
-.v-leave-active {
+.slide-up-enter-active,
+.slide-up-leave-active {
   transition: transform 0.5s;
 }
 
-.v-enter-from,
-.v-leave-to {
+.slide-up-enter-from,
+.slide-up-leave-to {
   transform: translateY(100%);
 }
 </style>

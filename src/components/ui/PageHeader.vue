@@ -1,6 +1,6 @@
 <template>
   <header class="header">
-    <button @click="goToHomepage">
+    <button @click="goToPrevious">
       <span class="material-symbols-rounded"> arrow_back </span>
     </button>
     <h1>
@@ -14,8 +14,8 @@
 import { useRouter } from "vue-router";
 const props = defineProps(["icon", "headerText"]);
 const router = useRouter();
-function goToHomepage() {
-  router.push("/home");
+function goToPrevious() {
+  router.go(-1);
 }
 </script>
 
