@@ -1,13 +1,15 @@
 <template>
-  <HomeCalendar></HomeCalendar>
-  <main>
-    <ProgressBar :taskNum="tasks.length"></ProgressBar>
-    <TaskList
-      :tasks="tasks"
-      @deleteTask="deleteTask"
-      @toggleDone="toggleDone"
-    ></TaskList>
-  </main>
+  <div class="homepage">
+    <HomeCalendar></HomeCalendar>
+    <main>
+      <ProgressBar :taskNum="tasks.length"></ProgressBar>
+      <TaskList
+        :tasks="tasks"
+        @deleteTask="deleteTask"
+        @toggleDone="toggleDone"
+      ></TaskList>
+    </main>
+  </div>
 </template>
 
 <script setup>

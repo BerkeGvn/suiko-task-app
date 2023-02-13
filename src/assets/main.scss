@@ -71,6 +71,7 @@ form {
     resize: none;
   }
   & input[type="text"],
+  input[type="password"],
   textarea,
   .date-input {
     width: 100%;

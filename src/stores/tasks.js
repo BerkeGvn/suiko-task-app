@@ -1,10 +1,10 @@
 import { defineStore } from "pinia";
-import tasks from "../assets/tasks";
+import DummyTasks from "../assets/tasks";
 import { randomId } from "../assets/helpers";
 
 export const useTaskStore = defineStore("tasks", {
   state: () => ({
-    allTasks: [...tasks],
+    allTasks: [...DummyTasks],
   }),
   getters: {
     getAllTasks: (state) => {
@@ -49,6 +49,7 @@ export const useTaskStore = defineStore("tasks", {
     createNewList(newList) {
       newList.id = randomId();
       this.allTasks.push(newList);
+      this.setTasksToDB();
     },
     addNewTask(task) {
       const newTask = {
@@ -62,11 +63,13 @@ export const useTaskStore = defineStore("tasks", {
         (list) => list.name === task.list
       );
       this.allTasks[listIndex].tasks.push(newTask);
+      this.setTasksToDB();
     },
 
     deleteList(listId) {
       const listIndex = this.allTasks.findIndex((list) => list.id === listId);
       this.allTasks.splice(listIndex, 1);
+      this.setTasksToDB();
     },
 
     deleteTask(taskId) {
@@ -78,6 +81,7 @@ export const useTaskStore = defineStore("tasks", {
         (task) => task.id === taskId
       );
       this.allTasks[listIndex].tasks.splice(taskIndex, 1);
+      this.setTasksToDB();
     },
 
     toggleTaskIsDone(taskId) {
@@ -89,6 +93,7 @@ export const useTaskStore = defineStore("tasks", {
       );
       const selectedTask = this.allTasks[listIndex].tasks[taskIndex];
       selectedTask.isDone = !selectedTask.isDone;
+      this.setTasksToDB();
     },
 
     // For getting list name and color for badges
@@ -119,6 +124,14 @@ export const useTaskStore = defineStore("tasks", {
         });
       });
       return tasks;
+    },
+    setTasksToDB() {
+      localStorage.setItem("tasks", JSON.stringify(this.allTasks));
+    },
+    getTasksFromDB() {
+      let tasks = localStorage.getItem("tasks");
+      tasks = JSON.parse(tasks);
+      this.allTasks = tasks;
     },
   },
 });

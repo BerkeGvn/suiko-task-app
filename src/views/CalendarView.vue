@@ -1,27 +1,32 @@
 <template>
-  <div class="page background-blob calendar">
+  <div class="page background-blob">
     <PageHeader :icon="'calendar_month'" :headerText="'Calendar'"></PageHeader>
-    <div class="calendar-section">
-      <DatePicker
-        locale="en-GB"
-        is-expanded
-        :attributes="attributes"
-        v-model="date"
-        color="red"
-        :model-config="modelConfig"
-      >
-      </DatePicker>
-      <h2 class="date-display">
-        {{ dateDisplay }}
-      </h2>
-    </div>
+    <section class="calendar">
+      <div class="calendar-section">
+        <DatePicker
+          locale="en-GB"
+          is-expanded
+          :attributes="attributes"
+          v-model="date"
+          color="red"
+          :model-config="modelConfig"
+        >
+        </DatePicker>
+        <DateHeader v-if="date" :date="dateDisplay"></DateHeader>
+      </div>
+      <div class="no-task" v-if="selectedDateTasks.length <= 0">
+        <p>Oh, seems you don't have any task.</p>
+        <p>
+          Click <router-link to="/newTask">here</router-link> to add a new task!
+        </p>
+      </div>
 
-    <p v-if="selectedDateTasks.length <= 0">You have no tasks</p>
-    <TaskList
-      :tasks="selectedDateTasks"
-      @deleteTask="deleteTask"
-      @toggleDone="toggleDone"
-    ></TaskList>
+      <TaskList
+        :tasks="selectedDateTasks"
+        @deleteTask="deleteTask"
+        @toggleDone="toggleDone"
+      ></TaskList>
+    </section>
   </div>
 </template>
 
@@ -31,6 +36,7 @@ import { DatePicker } from "v-calendar";
 import { useTaskStore } from "../stores/tasks";
 import { ref, computed, provide, watchEffect } from "vue";
 import TaskList from "../components/task/TaskList.vue";
+import DateHeader from "../components/ui/DateHeader.vue";
 
 const store = useTaskStore();
 const tasks = computed(() => store.getAllTasks);
@@ -51,13 +57,7 @@ function toggleDone(taskId) {
 }
 
 const dateDisplay = computed(() => {
-  const longDate = formatDate(date.value);
-  return longDate.toLocaleString("en-gb", {
-    year: "numeric",
-    day: "numeric",
-    month: "long",
-    weekday: "long",
-  });
+  return formatDate(date.value);
 });
 
 // for formatting string date to Date
@@ -97,13 +97,19 @@ const attributes = computed(() => {
   gap: 2rem;
   & .calendar-section {
     width: 90%;
-    margin: 2rem;
     display: flex;
     flex-direction: column;
     align-items: center;
   }
   & .date-display {
     font-size: var(--normal-font-size);
+  }
+  & .no-task {
+    font-size: var(--normal-font-size);
+    text-align: center;
+    & a {
+      color: var(--main-orange-color);
+    }
   }
 }
 </style>

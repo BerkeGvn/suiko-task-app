@@ -22,6 +22,7 @@ li {
   gap: 2rem;
   padding: 2rem;
   border-radius: 10px;
+  margin: auto;
   margin-bottom: 2rem;
   width: 100%;
   @media only screen and (min-width: 768px) {
