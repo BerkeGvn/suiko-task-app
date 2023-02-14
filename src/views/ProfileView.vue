@@ -3,7 +3,7 @@
     <PageHeader :icon="'person'" :headerText="'Profile'"></PageHeader>
     <div class="profile">
       <img
-        src="../assets/svg/login-illustration.png"
+        src="../assets/png-svg/login-illustration-small.png"
         alt="log in page illustration"
       />
       <p>Start your Journey now!</p>

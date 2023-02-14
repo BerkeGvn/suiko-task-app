@@ -30,40 +30,32 @@ let percentage = ref(0);
 const taskPercentage = computed(() =>
   ((props.taskDone / props.taskNum) * 100).toFixed()
 );
-
-// for animation of percentage bar + text
-const progress = setInterval(() => {
-  if (props.taskNum == 0) {
-    clearInterval(progress);
-    percentage.value = 0;
-  } else {
-    percentage.value += 1;
-    if (percentage.value == taskPercentage.value) {
-      clearInterval(progress);
-    }
-  }
-}, 10);
-
-// watching task percentage for reactive percentage bar + text
-watch(taskPercentage, (newValue) => {
+function progresser(value) {
   const progress = setInterval(() => {
     if (props.taskNum == 0) {
       clearInterval(progress);
       percentage.value = 0;
     } else {
-      if (newValue <= percentage.value) {
+      if (value <= percentage.value) {
         percentage.value -= 1;
-        if (percentage.value == newValue) {
+        if (percentage.value == value) {
           clearInterval(progress);
         }
       } else {
         percentage.value += 1;
-        if (percentage.value == newValue) {
+        if (percentage.value == value) {
           clearInterval(progress);
         }
       }
     }
   }, 10);
+}
+progresser(taskPercentage.value);
+// for animation of percentage bar + text
+
+// watching task percentage for reactive percentage bar + text
+watch(taskPercentage, (newValue) => {
+  progresser(newValue);
 });
 </script>
 
