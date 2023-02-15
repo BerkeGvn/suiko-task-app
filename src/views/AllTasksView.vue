@@ -1,5 +1,5 @@
 <template>
-  <div class="page background-blob task-lists">
+  <div class="page task-lists">
     <PageHeader :icon="'list_alt'" :headerText="'Task List'"></PageHeader>
     <AllTasksList :allTasks="allTasks" @deleteList="deleteList"></AllTasksList>
     <button @click="newListForm = true" class="create-button fixed-task-button">

@@ -12,7 +12,13 @@
   </li>
 </template>
 
-<script setup></script>
+<script setup>
+import { ref } from "vue";
+
+const props = defineProps(["list"]);
+
+const color = ref(props.list.color);
+</script>
 
 <style lang="scss" scoped>
 li {
@@ -25,6 +31,17 @@ li {
   margin: auto;
   margin-bottom: 2rem;
   width: 100%;
+  position: relative;
+  &::before {
+    content: "";
+    position: absolute;
+    width: 1rem;
+    height: 100%;
+    background-color: v-bind(color);
+    top: 0;
+    left: 0;
+    border-radius: 1rem 0 0 1rem;
+  }
   @media only screen and (min-width: 768px) {
     width: 50vw;
   }
@@ -35,9 +52,15 @@ li {
     font-size: var(--normal-font-size);
     font-weight: 500;
     margin-right: auto;
+    // card description`
     & :last-child {
       color: var(--text-color-3);
       font-size: var(--small-font-size);
+      // card date
+      & :not(:first-child) {
+        font-size: 0.9rem;
+        margin-top: 0.5rem;
+      }
     }
   }
   & .badges-delete {
@@ -45,7 +68,7 @@ li {
     flex-direction: column;
     justify-content: space-between;
     margin-top: -1rem;
-    margin-bottom: -2rem;
+    margin-bottom: -0.5rem;
   }
 }
 </style>

@@ -1,11 +1,12 @@
 <template>
   <NavBar></NavBar>
-
-  <router-view v-slot="{ Component }">
-    <transition mode="out-in" name="page">
-      <component :is="Component" />
-    </transition>
-  </router-view>
+  <div class="background-blob">
+    <router-view v-slot="{ Component }">
+      <transition mode="out-in" name="page">
+        <component :is="Component" />
+      </transition>
+    </router-view>
+  </div>
 </template>
 
 <script setup>

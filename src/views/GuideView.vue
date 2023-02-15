@@ -18,6 +18,7 @@ const DesktopGuide = defineAsyncComponent(() =>
   import("../components/initial/DesktopGuide.vue")
 );
 
+// this function check user's screen width and show guide according
 const { width } = useBreakpoints();
 </script>
 

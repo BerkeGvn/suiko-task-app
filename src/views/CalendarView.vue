@@ -1,5 +1,5 @@
 <template>
-  <div class="page background-blob">
+  <div class="page">
     <PageHeader :icon="'calendar_month'" :headerText="'Calendar'"></PageHeader>
     <section class="calendar">
       <div class="calendar-section">
@@ -20,11 +20,12 @@
           Click <router-link to="/newTask">here</router-link> to add a new task!
         </p>
       </div>
-
       <TaskList
+        v-else
         :tasks="selectedDateTasks"
         @deleteTask="deleteTask"
         @toggleDone="toggleDone"
+        :getListDetails="store.getListDetails"
       ></TaskList>
     </section>
   </div>
@@ -34,21 +35,21 @@
 import "v-calendar/dist/style.css";
 import { DatePicker } from "v-calendar";
 import { useTaskStore } from "../stores/tasks";
-import { ref, computed, provide, watchEffect } from "vue";
+import { ref, computed, watchEffect } from "vue";
 import TaskList from "../components/task/TaskList.vue";
 import DateHeader from "../components/ui/DateHeader.vue";
 
 const store = useTaskStore();
 const tasks = computed(() => store.getAllTasks);
-
-const date = ref(new Date().toLocaleDateString("en-GB"));
+const today = new Date().toLocaleDateString("en-GB");
+const date = ref(today);
 let selectedDateTasks = ref(store.getTasksFromDate(date.value));
 
+// if date changes on calendar list changes too
 watchEffect(() => {
   selectedDateTasks = ref(store.getTasksFromDate(date.value));
 });
-
-provide("getListDetails", store.getListDetails);
+console.log(selectedDateTasks.value);
 function deleteTask(taskId) {
   store.deleteTask(taskId);
 }
@@ -60,7 +61,7 @@ const dateDisplay = computed(() => {
   return formatDate(date.value);
 });
 
-// for formatting string date to Date
+// for formatting string date to new Date()
 function formatDate(date) {
   const [day, month, year] = date.split("/");
   return new Date(+year, +month - 1, +day);

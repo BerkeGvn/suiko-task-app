@@ -17,6 +17,61 @@
         <button @click="changePage('firstPage')" class="start-button">
           Start Exploring!
         </button>
+        <div class="logo">
+          <svg
+            width="37"
+            height="27"
+            version="1.1"
+            viewBox="0 0 28.917 21.102"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <g
+              transform="matrix(.817 0 0 1.0208 -29.884 -89.969)"
+              stroke-linejoin="round"
+            >
+              <g transform="matrix(1.1759 0 0 1.1274 -36.075 -14.488)">
+                <g
+                  transform="translate(-3.2249 2.0773)"
+                  fill="none"
+                  stroke="#f03b1c"
+                  stroke-linecap="round"
+                  stroke-linejoin="miter"
+                >
+                  <path
+                    d="m66.085 98.145 6.4934 5.5263"
+                    stroke-width="1.5631px"
+                  />
+                  <path
+                    d="m72.708 103.71 11.831-13.784"
+                    stroke-width="1.6346px"
+                  />
+                </g>
+              </g>
+              <g
+                transform="matrix(-1.1759 0 0 -1.1274 144.69 211.43)"
+                stroke-linejoin="round"
+              >
+                <g
+                  transform="translate(-3.2249 2.0773)"
+                  fill="none"
+                  stroke="#122c6f"
+                  stroke-linecap="round"
+                  stroke-linejoin="miter"
+                >
+                  <path
+                    d="m66.085 98.145 6.4934 5.5263"
+                    stroke-width="1.5631px"
+                  />
+                  <path
+                    d="m72.708 103.71 11.831-13.784"
+                    stroke-width="1.6346px"
+                  />
+                </g>
+              </g>
+            </g>
+          </svg>
+          <span>Suiko</span>
+        </div>
       </div>
 
       <div v-else-if="secondPage" class="mobile-first">
@@ -86,6 +141,7 @@ function changePage(page) {
   z-index: 15;
   background-color: var(--background-color-1);
   &-first {
+    height: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -119,6 +175,15 @@ function changePage(page) {
     font-weight: 500;
     margin-top: 2rem;
     color: var(--text-color-2);
+  }
+  & .logo {
+    margin-top: 4rem;
+    font-size: var(--header-font-size);
+    font-weight: 600;
+    color: var(--main-orange-color);
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
   }
 
   .slide-right-enter-active,

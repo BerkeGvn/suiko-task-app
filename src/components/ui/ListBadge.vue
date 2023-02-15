@@ -1,20 +1,16 @@
 <template>
   <p class="badge">
     <span></span>
-    {{ formatText(listDetails.name) }}
+    {{ formatText(props.list.name) }}
   </p>
 </template>
 
 <script setup>
-import { ref, inject, computed } from "vue";
+import { ref } from "vue";
 import { formatText } from "../../assets/helpers";
 
-const props = defineProps(["taskId"]);
-
-const getListDetails = inject("getListDetails");
-// Combine injected action with task id prop to get correct badge
-const listDetails = computed(() => getListDetails(props.taskId));
-const color = ref(listDetails.value.color);
+const props = defineProps(["list"]);
+const color = ref(props.list.color);
 </script>
 
 <style lang="scss" scoped>
