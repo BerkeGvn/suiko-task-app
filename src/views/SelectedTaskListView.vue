@@ -1,14 +1,17 @@
 <template>
-  <div class="page background-blob selected-list">
+  <div class="page selected-list">
     <PageHeader
+      v-if="taskList"
       :icon="'checklist_rtl'"
       :headerText="props.listName"
     ></PageHeader>
 
     <TaskList
+      v-if="taskList"
       :tasks="taskList.tasks"
       @deleteTask="deleteTask"
       @toggleDone="toggleDone"
+      :getListDetails="store.getListDetails"
     ></TaskList>
     <router-link to="/newTask">
       <button
@@ -23,7 +26,6 @@
 </template>
 
 <script setup>
-import { provide } from "vue";
 import { useTaskStore } from "../stores/tasks";
 import { useRouter, onBeforeRouteLeave } from "vue-router";
 import TaskList from "../components/task/TaskList.vue";
@@ -32,11 +34,12 @@ const props = defineProps(["listName"]);
 const router = useRouter();
 const store = useTaskStore();
 const taskList = store.getSelectedTaskList(props.listName);
-provide("getListDetails", store.getListDetails);
 
+// if there is no list with entered name, changes route. It guards from entered list names from url
 if (!taskList) {
-  router.push("/home");
+  router.replace("/AllTasks");
 }
+
 function deleteTask(taskId) {
   store.deleteTask(taskId);
 }

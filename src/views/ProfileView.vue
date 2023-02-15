@@ -1,5 +1,5 @@
 <template>
-  <div class="page background-blob">
+  <div class="page">
     <PageHeader :icon="'person'" :headerText="'Profile'"></PageHeader>
     <div class="profile">
       <img

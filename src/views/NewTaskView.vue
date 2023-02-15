@@ -1,5 +1,5 @@
 <template>
-  <div class="page background-blob">
+  <div class="page">
     <PageHeader :icon="'add_circle'" :headerText="'New Task'"></PageHeader>
     <NewTaskForm
       :categories="listNames"

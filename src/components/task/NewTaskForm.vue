@@ -185,7 +185,7 @@ form {
     }
 
     &-list {
-      margin: 2rem -2rem;
+      margin: 2rem 0;
       display: flex;
       gap: 2rem;
       white-space: nowrap;
