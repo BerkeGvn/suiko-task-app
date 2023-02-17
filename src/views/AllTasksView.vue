@@ -1,20 +1,28 @@
 <template>
-  <div class="page task-lists">
+  <div class="page">
     <PageHeader :icon="'list_alt'" :headerText="'Task List'"></PageHeader>
-    <AllTasksList :allTasks="allTasks" @deleteList="deleteList"></AllTasksList>
-    <button @click="newListForm = true" class="create-button fixed-task-button">
-      <span class="material-symbols-rounded circle"> add_circle </span>
-      New task list
-    </button>
-    <!-- backdrop for prevent clicking background -->
-    <div v-if="newListForm" class="backdrop"></div>
-    <Transition name="slide-up">
-      <NewList
-        @submitNewList="submitNewList"
-        @cancelSubmit="cancelSubmit"
-        v-if="newListForm"
-      ></NewList>
-    </Transition>
+    <div class="task-lists">
+      <AllTasksList
+        :allTasks="allTasks"
+        @deleteList="deleteList"
+      ></AllTasksList>
+      <button
+        @click="newListForm = true"
+        class="create-button fixed-task-button"
+      >
+        <span class="material-symbols-rounded circle"> add_circle </span>
+        New task list
+      </button>
+      <!-- backdrop for prevent clicking background -->
+      <div v-if="newListForm" class="backdrop"></div>
+      <Transition name="slide-up">
+        <NewList
+          @submitNewList="submitNewList"
+          @cancelSubmit="cancelSubmit"
+          v-if="newListForm"
+        ></NewList>
+      </Transition>
+    </div>
   </div>
 </template>
 
@@ -46,9 +54,13 @@ function cancelSubmit() {
 </script>
 
 <style lang="scss" scoped>
+@import "../assets/scss/breakpoints.scss";
 .task-lists {
   font-size: 1.6rem;
   position: relative;
+  @media only screen and (min-width: $bp-small) {
+    width: 70%;
+  }
 }
 .backdrop {
   position: fixed;

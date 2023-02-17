@@ -136,7 +136,7 @@ function changePage(page) {
 
 <style lang="scss" scoped>
 .mobile {
-  height: 100vh;
+  min-height: 100vh;
   position: relative;
   z-index: 15;
   background-color: var(--background-color-1);

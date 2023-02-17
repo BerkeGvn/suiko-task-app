@@ -18,7 +18,7 @@ header {
   justify-content: center;
   align-items: center;
   gap: 1rem;
-  padding-top: 6rem;
+  padding-top: 5rem;
 
   & .home {
     font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 48;

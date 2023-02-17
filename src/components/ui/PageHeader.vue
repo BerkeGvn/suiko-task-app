@@ -63,13 +63,16 @@ function goToPrevious() {
 </script>
 
 <style lang="scss" scoped>
+@import "../../assets/scss/breakpoints.scss";
 header {
   display: flex;
   align-items: center;
-
   position: relative;
   height: 10rem;
   margin-top: -2rem;
+  @media only screen and (min-width: $bp-small) {
+    align-self: normal;
+  }
   .logo {
     position: absolute;
     display: flex;

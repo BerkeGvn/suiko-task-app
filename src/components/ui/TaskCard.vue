@@ -1,5 +1,5 @@
 <template>
-  <li>
+  <li class="card">
     <div class="checkbox">
       <slot name="checkbox"></slot>
     </div>
@@ -21,6 +21,7 @@ const color = ref(props.list.color);
 </script>
 
 <style lang="scss" scoped>
+@import "../../assets/scss/breakpoints.scss";
 li {
   position: relative;
   background-color: var(--background-color-2);
@@ -32,6 +33,7 @@ li {
   margin-bottom: 2rem;
   width: 100%;
   position: relative;
+
   &::before {
     content: "";
     position: absolute;
@@ -42,9 +44,7 @@ li {
     left: 0;
     border-radius: 1rem 0 0 1rem;
   }
-  @media only screen and (min-width: 768px) {
-    width: 50vw;
-  }
+
   & .checkbox {
     align-self: center;
   }
@@ -69,6 +69,30 @@ li {
     justify-content: space-between;
     margin-top: -1rem;
     margin-bottom: -0.5rem;
+  }
+  @media only screen and (min-width: $bp-medium) {
+    height: 100%;
+    border-radius: 0 10px 0 0;
+    box-shadow: 0 -2px 1px #cfd4e2;
+    &::before {
+      width: 1%;
+      height: 100%;
+      left: -0.3rem;
+      border-radius: 20px 0 0 20px;
+    }
+    &::after {
+      content: "";
+      position: absolute;
+      background-color: v-bind(color);
+      width: 101%;
+      height: 2%;
+      left: -0.3rem;
+      bottom: 0;
+      border-radius: 0 0 20px 20px;
+    }
+    & .main {
+      align-self: center;
+    }
   }
 }
 </style>
