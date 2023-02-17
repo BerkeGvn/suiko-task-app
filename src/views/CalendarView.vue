@@ -91,16 +91,23 @@ const attributes = computed(() => {
 </script>
 
 <style lang="scss" scoped>
+@import "../assets/scss/breakpoints.scss";
 .calendar {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 2rem;
+  @media only screen and (min-width: $bp-small) {
+    align-self: normal;
+  }
   & .calendar-section {
     width: 90%;
     display: flex;
     flex-direction: column;
     align-items: center;
+    @media only screen and (min-width: $bp-small) {
+      width: 70%;
+    }
   }
   & .date-display {
     font-size: var(--normal-font-size);

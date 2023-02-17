@@ -52,38 +52,64 @@ function getSelectedDate() {
 </script>
 
 <style lang="scss" scoped>
+@import "../../assets/scss/breakpoints.scss";
 .week-calendar {
-  display: flex;
-  justify-content: space-around;
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
   align-items: center;
+  justify-items: center;
   margin-bottom: 1rem;
   height: 8rem;
-  input[type="radio"] {
+  margin: 0 1rem;
+  & input[type="radio"] {
     display: none;
 
     & + label {
       font-size: 1.5rem;
-      display: inline-block;
-      text-align: center;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
       border-radius: 10px;
       transition: all 0.2s;
-
+      width: 5rem;
+      height: 7rem;
       & p:first-child {
         color: var(--text-color-3);
       }
       & p:last-child {
         font-weight: 600;
       }
+      @media only screen and (min-width: $bp-small) {
+        width: 6rem;
+        font-size: 1.8rem;
+      }
     }
     &:checked + label {
       background-color: var(--main-orange-color);
       color: var(--text-color-2);
-      padding: 2rem 1rem;
-      font-size: 1.5rem;
+      transform: scale(1.1);
+      @media only screen and (min-width: $bp-medium) {
+        &::after {
+          content: "";
+          position: absolute;
+          width: 3px;
+          height: 8px;
+          bottom: 0;
+          left: 50%;
+          border-radius: 20px;
+          background-color: #9da2b0;
+        }
+      }
       & p:first-child {
         color: var(--text-color-2);
       }
     }
+  }
+  @media only screen and (min-width: $bp-medium) {
+    border-bottom: 3px solid #9da2b0;
+    border-radius: 1px;
   }
 }
 </style>

@@ -79,6 +79,7 @@ watch(taskPercentage, (newValue) => {
 </script>
 
 <style lang="scss" scoped>
+@import "../../assets/scss/breakpoints.scss";
 .progress {
   width: 100%;
   padding: 1rem;
@@ -91,6 +92,7 @@ watch(taskPercentage, (newValue) => {
   justify-content: space-evenly;
   min-height: 17rem;
   gap: 1rem;
+
   &-cirlce {
     width: 12rem;
     height: 12rem;
@@ -126,6 +128,25 @@ watch(taskPercentage, (newValue) => {
     gap: 4rem;
     text-align: center;
     justify-content: space-evenly;
+  }
+  @media only screen and (min-width: $bp-small) {
+    width: 70%;
+  }
+  @media only screen and (min-width: $bp-medium) {
+    width: 30%;
+    flex-direction: column;
+    align-items: center;
+    gap: 10rem;
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+    &-cirlce {
+      width: 16rem;
+      height: 16rem;
+      &-outer {
+        width: 16rem;
+        height: 16rem;
+      }
+    }
   }
 }
 </style>

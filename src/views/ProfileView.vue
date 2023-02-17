@@ -27,10 +27,21 @@
 <script setup></script>
 
 <style lang="scss" scoped>
+@import "../assets/scss/breakpoints.scss";
 .profile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   margin-top: -4rem;
+  @media only screen and (min-width: $bp-small) {
+    width: 70%;
+  }
   & img {
     width: 100%;
+    // special bp for image at 500px because it grows so big
+    @media only screen and (min-width: 31.2em) {
+      width: 80%;
+    }
   }
   & p {
     font-size: var(--normal-font-size);
@@ -40,7 +51,7 @@
     display: flex;
     flex-direction: column;
     gap: 2rem;
-
+    width: 100%;
     & button {
       font-size: var(--normal-font-size);
     }
