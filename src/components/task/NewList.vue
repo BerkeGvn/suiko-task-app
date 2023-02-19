@@ -103,6 +103,7 @@ function cancelSubmit() {
 </script>
 
 <style lang="scss" scoped>
+@import "../../assets/scss/breakpoints.scss";
 .form-backdrop {
   position: fixed;
   top: 0;
@@ -110,7 +111,7 @@ function cancelSubmit() {
   height: 100vh;
   width: 100%;
   display: flex;
-  z-index: 10;
+  z-index: 5;
 }
 form {
   height: 70%;
@@ -123,6 +124,7 @@ form {
   justify-content: space-around;
   align-items: center;
   position: relative;
+  z-index: 10;
   & label {
     width: 80%;
   }
@@ -176,6 +178,20 @@ form {
     &:checked + label {
       border: 5px solid #122c6f;
     }
+  }
+  @media only screen and (min-width: $bp-medium) {
+    width: 60%;
+    margin: 0 auto;
+    & input[type="text"] {
+      font-size: var(--normal-font-size);
+    }
+    & .new-list-button {
+      padding: 2rem 1rem;
+      width: 50%;
+    }
+  }
+  @media only screen and (min-width: $bp-large) {
+    width: 40%;
   }
 }
 </style>

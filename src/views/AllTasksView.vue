@@ -56,10 +56,18 @@ function cancelSubmit() {
 <style lang="scss" scoped>
 @import "../assets/scss/breakpoints.scss";
 .task-lists {
-  font-size: 1.6rem;
+  font-size: var(--normal-font-size);
   position: relative;
   @media only screen and (min-width: $bp-small) {
     width: 70%;
+  }
+  @media only screen and (min-width: $bp-medium) {
+    width: 60%;
+    font-size: 2rem;
+  }
+  // divs becomes so wider so i added a bp
+  @media only screen and (min-width: 75em) {
+    width: 50%;
   }
 }
 .backdrop {

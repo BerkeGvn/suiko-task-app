@@ -174,6 +174,7 @@ function submitTaskForm() {
 </script>
 
 <style lang="scss" scoped>
+@import "../../assets/scss/breakpoints.scss";
 form {
   font-size: var(--normal-font-size);
 
@@ -248,6 +249,16 @@ form {
     margin-top: 2rem;
     font-weight: 500;
     width: 100%;
+  }
+  @media only screen and (min-width: $bp-medium) {
+    min-width: 50%;
+    background-color: #cfd4e2;
+    border-radius: 10px;
+    box-shadow: 1px 3px 6px #94979f;
+    padding: 2rem 5rem 5rem 5rem;
+  }
+  @media only screen and (min-width: $bp-large) {
+    min-width: 30%;
   }
 }
 </style>

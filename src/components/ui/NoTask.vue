@@ -3,6 +3,7 @@
     <img
       src="../../assets/png-svg/no-task-small.png"
       alt="no task illustration"
+      draggable="false"
     />
     <p>
       Looks like you don't have any task. Or you already completed all your

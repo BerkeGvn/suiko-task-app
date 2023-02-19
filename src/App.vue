@@ -11,12 +11,13 @@
 
 <script setup>
 import NavBar from "./components/nav/NavBar.vue";
-/* import { onMounted } from "vue";
+import { onMounted } from "vue";
 import { useTaskStore } from "./stores/tasks";
 const store = useTaskStore();
 onMounted(() => {
   store.getTasksFromDB();
-}); */
+  store.checkTasks();
+});
 </script>
 
 <style lang="scss" scoped>

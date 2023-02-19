@@ -135,6 +135,7 @@ function changePage(page) {
 </script>
 
 <style lang="scss" scoped>
+@import "../../assets/scss/breakpoints.scss";
 .mobile {
   min-height: 100vh;
   position: relative;
@@ -149,6 +150,9 @@ function changePage(page) {
   & img {
     width: 100%;
     margin: 2rem 0;
+    @media only screen and (min-width: $bp-small) {
+      width: 83%;
+    }
   }
   &-details {
     padding: 2rem;
