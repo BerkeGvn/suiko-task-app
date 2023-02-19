@@ -1,3 +1,3 @@
 # suiko-task-app
 
-This template should help get you started developing with Vue 3 in Vite.
+https://berkegvn.github.io/suiko-task-app
