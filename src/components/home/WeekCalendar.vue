@@ -85,31 +85,30 @@ function getSelectedDate() {
         width: 6rem;
         font-size: 1.8rem;
       }
+      @media only screen and (min-width: $bp-large) {
+        font-size: 2.1rem;
+      }
     }
     &:checked + label {
       background-color: var(--main-orange-color);
       color: var(--text-color-2);
       transform: scale(1.1);
-      @media only screen and (min-width: $bp-medium) {
-        &::after {
-          content: "";
-          position: absolute;
-          width: 3px;
-          height: 8px;
-          bottom: 0;
-          left: 50%;
-          border-radius: 20px;
-          background-color: #9da2b0;
-        }
-      }
+
       & p:first-child {
         color: var(--text-color-2);
       }
     }
   }
   @media only screen and (min-width: $bp-medium) {
-    border-bottom: 3px solid #9da2b0;
+    border-bottom: 2px solid #9da2b0;
     border-radius: 1px;
+    & input[type="radio"] {
+      & + label {
+        &:hover {
+          cursor: pointer;
+        }
+      }
+    }
   }
 }
 </style>

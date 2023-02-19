@@ -78,6 +78,7 @@ function deleteList(listId) {
 </script>
 
 <style lang="scss" scoped>
+@import "../../assets/scss/breakpoints.scss";
 .list {
   border-radius: 10px;
   display: flex;
@@ -87,8 +88,13 @@ function deleteList(listId) {
   text-align: center;
   color: var(--text-color-2);
   font-weight: 500;
+  transition: all 0.3s;
   & .sub-text {
     font-size: var(--small-font-size);
+  }
+  &:hover {
+    transform: translateY(-0.5rem);
+    box-shadow: 1px 2px 4px #616161;
   }
 }
 .base-lists {
@@ -122,6 +128,9 @@ function deleteList(listId) {
     span {
       color: var(--light-green-text-color);
     }
+  }
+  @media only screen and (min-width: $bp-medium) {
+    height: 40vh;
   }
 }
 

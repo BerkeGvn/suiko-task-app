@@ -129,16 +129,12 @@ watch(taskPercentage, (newValue) => {
     text-align: center;
     justify-content: space-evenly;
   }
-  @media only screen and (min-width: $bp-small) {
-    width: 70%;
-  }
   @media only screen and (min-width: $bp-medium) {
-    width: 30%;
     flex-direction: column;
     align-items: center;
     gap: 10rem;
-    padding-top: 4rem;
-    padding-bottom: 4rem;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
     &-cirlce {
       width: 16rem;
       height: 16rem;

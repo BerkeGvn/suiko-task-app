@@ -70,9 +70,7 @@ header {
   position: relative;
   height: 10rem;
   margin-top: -2rem;
-  @media only screen and (min-width: $bp-small) {
-    align-self: normal;
-  }
+
   .logo {
     position: absolute;
     display: flex;
@@ -100,6 +98,18 @@ header {
   & button {
     border: none;
     background-color: transparent;
+  }
+  @media only screen and (min-width: $bp-small) {
+    align-self: normal;
+  }
+  @media only screen and (min-width: $bp-small) {
+    height: 6rem;
+    & .logo {
+      display: none;
+    }
+    & button {
+      display: none;
+    }
   }
 }
 </style>

@@ -59,10 +59,9 @@ function deleteTask(taskId) {
 function toggleDone(taskId) {
   emit("toggleDone", taskId);
 }
-
+// this is a fix for a bug that when deleting element from list, element gets the size of its parent
 function onBeforeLeave(el) {
   const { marginLeft, marginTop, width, height } = window.getComputedStyle(el);
-
   el.style.left = `${el.offsetLeft - parseFloat(marginLeft, 10)}px`;
   el.style.top = `${el.offsetTop - parseFloat(marginTop, 10)}px`;
   el.style.width = width;
@@ -121,8 +120,8 @@ function onBeforeLeave(el) {
   }
 
   .tasks-move, /* apply transition to moving elements */
-.tasks-enter-active,
-.tasks-leave-active {
+  .tasks-enter-active,
+  .tasks-leave-active {
     transition: all 0.5s;
   }
 
@@ -140,13 +139,22 @@ function onBeforeLeave(el) {
   }
   @media only screen and (min-width: $bp-medium) {
     ul {
+      max-width: 100%;
       display: grid;
       grid-template-columns: 1fr 1fr;
+      grid-auto-rows: minmax(10rem, min-content);
       gap: 2rem 2rem;
     }
+    input[type="checkbox"] {
+      & + label {
+        &:hover {
+          cursor: pointer;
+        }
+      }
+    }
     .tasks-move, /* apply transition to moving elements */
-.tasks-enter-active,
-.tasks-leave-active {
+    .tasks-enter-active,
+    .tasks-leave-active {
       transition: all 0.5s;
     }
 

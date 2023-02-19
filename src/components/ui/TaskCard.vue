@@ -32,6 +32,7 @@ li {
   margin: auto;
   margin-bottom: 2rem;
   width: 100%;
+  min-width: 0;
   position: relative;
 
   &::before {
@@ -73,7 +74,7 @@ li {
   @media only screen and (min-width: $bp-medium) {
     height: 100%;
     border-radius: 0 10px 0 0;
-    box-shadow: 0 -2px 1px #cfd4e2;
+    box-shadow: 1px -2px 1px #cfd4e2;
     &::before {
       width: 1%;
       height: 100%;
@@ -84,7 +85,7 @@ li {
       content: "";
       position: absolute;
       background-color: v-bind(color);
-      width: 101%;
+      width: 100%;
       height: 2%;
       left: -0.3rem;
       bottom: 0;

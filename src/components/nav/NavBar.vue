@@ -41,7 +41,9 @@
           </g>
         </g>
       </svg>
-      <span class="nav-logo-text">Suiko</span>
+      <router-link to="/home">
+        <span class="nav-logo-text">Suiko</span>
+      </router-link>
     </div>
     <div class="nav-links">
       <router-link to="/home">

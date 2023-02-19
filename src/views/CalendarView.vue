@@ -97,9 +97,7 @@ const attributes = computed(() => {
   flex-direction: column;
   align-items: center;
   gap: 2rem;
-  @media only screen and (min-width: $bp-small) {
-    align-self: normal;
-  }
+
   & .calendar-section {
     width: 90%;
     display: flex;
@@ -107,6 +105,9 @@ const attributes = computed(() => {
     align-items: center;
     @media only screen and (min-width: $bp-small) {
       width: 70%;
+    }
+    @media only screen and (min-width: $bp-small) {
+      width: 60%;
     }
   }
   & .date-display {
@@ -118,6 +119,13 @@ const attributes = computed(() => {
     & a {
       color: var(--main-orange-color);
     }
+  }
+  @media only screen and (min-width: $bp-small) {
+    align-self: normal;
+  }
+  @media only screen and (min-width: $bp-small) {
+    width: 80%;
+    margin: 0 auto;
   }
 }
 </style>

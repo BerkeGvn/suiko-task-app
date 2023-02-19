@@ -103,6 +103,10 @@ form {
   & .delete-icon {
     font-size: 2rem;
     color: var(--text-color-3);
+    &:hover {
+      cursor: pointer;
+      color: rgb(247, 35, 35);
+    }
   }
 }
 .create-button {
@@ -115,11 +119,44 @@ form {
   align-items: center;
   justify-content: center;
   gap: 1rem;
+  transition: all 0.2s;
+  position: relative;
+  @media only screen and (min-width: $bp-medium) {
+    &::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 0;
+      height: 100%;
+      background-color: var(--main-orange-color);
+      transition: all 0.3s;
+      z-index: -1;
+      border-radius: 10px;
+      opacity: 0;
+    }
+    &:hover {
+      cursor: pointer;
+      transform: translateY(-0.5rem);
+      box-shadow: 1px 2px 4px #616161;
+    }
+    &:hover::after {
+      width: 100%;
+      opacity: 1;
+    }
+    &:active {
+      transform: translateY(0);
+    }
+  }
 }
 .fixed-task-button {
   position: fixed;
   right: 1rem;
   bottom: 6rem;
+  @media only screen and (min-width: $bp-medium) {
+    font-size: 1.6rem;
+    padding: 2rem 4rem;
+  }
 }
 // margin for each page expect home
 .page {

@@ -4,7 +4,7 @@ import { randomId } from "../assets/helpers";
 
 export const useTaskStore = defineStore("tasks", {
   state: () => ({
-    allTasks: [...DummyTasks],
+    allTasks: [],
   }),
   getters: {
     getAllTasks: (state) => {
@@ -132,6 +132,19 @@ export const useTaskStore = defineStore("tasks", {
       let tasks = localStorage.getItem("tasks");
       tasks = JSON.parse(tasks);
       this.allTasks = tasks;
+    },
+
+    // If app doesn't have any task push dummy tasks to showcase
+    checkTasks() {
+      if (!this.allTasks) {
+        this.allTasks = [...DummyTasks];
+      } else {
+        const hasTask = this.allTasks.every((list) => list.tasks.length <= 0);
+
+        if (hasTask) {
+          this.allTasks = [...DummyTasks];
+        }
+      }
     },
   },
 });
