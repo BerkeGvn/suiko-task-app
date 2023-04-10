@@ -141,6 +141,7 @@ function changePage(page) {
   position: relative;
   z-index: 15;
   background-color: var(--background-color-1);
+  overflow: hidden;
   &-first {
     height: 100%;
     display: flex;
