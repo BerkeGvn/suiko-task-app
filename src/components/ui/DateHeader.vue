@@ -38,7 +38,7 @@ const dateDisplay = computed(() => {
   }
   & h2 {
     font-size: 3.1rem;
-    line-height: 0.9;
+    line-height: 1.1;
     & span {
       display: block;
       font-size: var(--header-font-size);
